@@ -22,21 +22,6 @@
         </div><!--/.nav-collapse -->
       </div>
     </nav>
-<p>
-  <strong>Name:</strong>
-  <%= @car.name %>
-</p>
-
-<p>
-  <strong>Cc:</strong>
-  <%= @car.cc %>
-</p>
-
-<p>
-  <strong>Memo:</strong>
-  <%= @car.memo %>
-</p>
-
     <div class="container theme-showcase" role="main">
       <br><br>
       <div class="page-header">
@@ -45,21 +30,21 @@
 	  <div class="form-group">
 	    <label>車名</label>
 	    <%= @car.name %>
-	  </div>」
+	  </div>
 	  <div class="form-group">
-	    <label>車名</label>
+	    <label>排気量</label>
 	    <%= @car.cc %>
 	  </div>
 	  <div class="form-group">
-	    <label>車名</label>
+	    <label>メモ</label>
 	    <%= @car.memo %>
 	  </div>
 		<br>
 		<button type="button" class="btn btn-default">
-		  <%= link_to 'Back', edit_car_path(@car) %>
+		  <%= link_to '編集', edit_car_path(@car) %>
 		</button>
 		<button type="button" class="btn btn-default">
-		  <%= link_to 'Back', cars_path %>
+		  <%= link_to '戻る', cars_path %>
 		</button>
 
 	</div>
