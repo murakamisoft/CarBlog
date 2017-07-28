@@ -1,0 +1,61 @@
+<p id="notice"><%= notice %></p>
+
+<!-- Fixed navbar -->
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <div class="navbar-brand">
+            <%= link_to "CarBlog", root_path %>
+          </div>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+          <ul class="nav navbar-nav">
+            <li class=""><%= link_to "ホーム", root_path %></li>
+            <li class="active"><%= link_to "車一覧", cars_path %></li>
+          </ul>
+        </div><!--/.nav-collapse -->
+      </div>
+    </nav>
+
+    <div class="container theme-showcase" role="main">
+    <br><br>
+      <div class="page-header">
+        <h1>車一覧</h1>
+      </div>
+
+      <div class="row">
+        <div class="col-md-12">
+        <%= link_to '新規作成', new_car_path, :class => "btn btn-default" %>
+        <br><br>
+        <table class="table">
+          <thead>
+            <tr>
+              <th>車名</th>
+              <th>排気量</th>
+              <th>コメント</th>
+              <th colspan="2"></th>
+            </tr>
+          </thead>
+
+          <tbody>
+            <% @cars.each do |car| %>
+              <tr>
+                <td><%= car.name %></td>
+                <td><%= car.cc %></td>
+                <td><%= car.memo %></td>
+                <td><%= link_to '確認', car, :class => "btn btn-default btn-sm" %></td>
+                <td><%= link_to '編集', edit_car_path(car), :class => "btn btn-default btn-sm" %></td>
+                <td><%= link_to '削除', car, method: :delete, data: { confirm: '削除してもよろしいですか？' }, :class => "btn btn-default btn-sm" %></td>
+              </tr>
+            <% end %>
+          </tbody>
+        </table>
+      </div>
+   </div>
+</div>

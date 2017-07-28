@@ -1,0 +1,33 @@
+<%= form_with(model: car, local: true) do |form| %>
+  <% if car.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(car.errors.count, "error") %> prohibited this car from being saved:</h2>
+
+      <ul>
+      <% car.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="form-group">
+    <label>車名</label>
+    <%= form.text_field :name, id: :car_name, :class => "form-control" %>
+  </div>
+
+  <div class="form-group">
+    <label>排気量</label>
+    <%= form.number_field :cc, id: :car_cc, :class => "form-control" %>
+  </div>
+
+  <div class="form-group">
+    <label>メモ</label>
+    <%= form.text_area :memo, id: :car_memo, :class => "form-control" %>
+  </div>
+  
+  
+  <div class="row">
+    <div class="col-md-8"><%= form.submit :class => "btn btn-default" %></div>
+  </div>
+<% end %>
