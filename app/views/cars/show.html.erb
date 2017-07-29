@@ -39,12 +39,12 @@
 	    <label>メモ</label>
 	    <%= @car.memo %>
 	  </div>
+    <div class="form-group">
+      <label>画像</label>
+      <%= image_tag(@car.picture_url) if @car.picture.present? %>
+    </div>
 		<br>
-		<button type="button" class="btn btn-default">
-		  <%= link_to '編集', edit_car_path(@car) %>
-		</button>
-		<button type="button" class="btn btn-default">
-		  <%= link_to '戻る', cars_path %>
-		</button>
+		<%= link_to '編集', edit_car_path(@car), :class => "btn btn-default" %>
+		<%= link_to '戻る', cars_path, :class => "btn btn-default" %>
 
 	</div>

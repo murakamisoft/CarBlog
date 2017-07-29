@@ -39,6 +39,7 @@
               <th>車名</th>
               <th>排気量</th>
               <th>コメント</th>
+              <th>画像</th>
               <th colspan="2"></th>
             </tr>
           </thead>
@@ -46,12 +47,16 @@
           <tbody>
             <% @cars.each do |car| %>
               <tr>
-                <td><%= car.name %></td>
+                <td class="td_vertical_align_middle"><%= car.name %></td>
                 <td><%= car.cc %></td>
                 <td><%= car.memo %></td>
+                <td>
+                  <%= image_tag(car.picture_url, :size => "128x128", :alt => car.picture_url) if car.picture.present? %>
+                </td>
                 <td><%= link_to '確認', car, :class => "btn btn-default btn-sm" %></td>
                 <td><%= link_to '編集', edit_car_path(car), :class => "btn btn-default btn-sm" %></td>
-                <td><%= link_to '削除', car, method: :delete, data: { confirm: '削除してもよろしいですか？' }, :class => "btn btn-default btn-sm" %></td>
+                <td><%= link_to '削除', car_path(car), method: :delete, data: {confirm: "本当によろしいですか？"}, :class => "btn btn-default btn-sm" %>
+                </td>
               </tr>
             <% end %>
           </tbody>
